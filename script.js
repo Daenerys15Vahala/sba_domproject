@@ -20,5 +20,38 @@ const summaryExtras = document.querySelector("#summaryExtras");
 const totalPrice = document.querySelector("#totalPrice");
 
 // buttons
-const messageDisplay = document.querySelector("#messageDisplay");
+const messageDisplay = document.getElementById("messageDisplay");
 const clearOrderBtn = document.querySelector("#clearOrderBtn");
+
+// receipt
+const receiptTemplate = document.querySelector("#receiptTemplate");
+const receiptContainer = document.querySelector("#receiptContainer");
+
+const orderSection = orderForm.parentElement;
+const orderHeading = orderSection.firstElementChild;
+
+
+// events
+customerName.addEventListener("input", function () {
+    if (customerName.value.trim() === "") {
+        summaryName.textContent = "Not entered";
+    } else {
+        summaryName.textContent = customerName.value;
+    }
+});
+
+drinkOptions.forEach(function(drink) {
+    drink.addEventListener("change", function () {
+        summaryDrink.textContent = drink.value;
+        updateTotal();
+    });
+});
+
+drinkSize.addEventListener("change", function() {
+    if (drinkSize.value === "") {
+        summarySize.textContent = "Not selected";
+    } else {
+        summarySize.textContent = drinkSize.value;
+    }
+    updateTotal();
+});
