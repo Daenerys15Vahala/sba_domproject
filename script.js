@@ -100,3 +100,67 @@ function updateTotal(){
 
     totalPrice.textContent = total.toFixed(2);
 };
+
+
+orderForm.addEventListener("submit", function (event) {
+    event.preventDefault();
+
+    console.log("Submit event fired!");
+
+    messageDisplay.textContent = "";
+    messageDisplay.classList.remove (
+        "error-message",
+        "success-message"
+    );
+
+    const selectedDrink = document.querySelector(
+        'input[name="drink"]:checked'
+    );
+
+    if(!orderForm.checkValidity()) {
+        orderForm.reportValidity();
+
+        const errorMessage = document.createElement("p");
+        errorMessage.textContent = 
+        "Please complete all required fields";
+
+        messageDisplay.appendChild(errorMessage);
+        messageDisplay.classList.add("error-message");
+        messageDisplay.setAttribute("role", "alert");
+
+        return;
+    }
+
+    if(selectedDrink === null) {
+        const errorMessage = document.createElement("p");
+        errorMessage.textContent = 
+        "Please select a drink before placing your order";
+
+        messageDisplay.appendChild(errorMessage);
+        messageDisplay.classList.add("error-message");
+        messageDisplay.setAttribute("role", "alert");
+
+        return;
+    }
+
+    const receiptCopy = receiptTemplate.content.cloneNode(true);
+
+    const receiptText = receiptCopy.querySelector(".receiptText");
+
+    receiptText.textContent = 
+    `${customerName.value}, your ${drinkSize.value}` +
+    `${selectedDrink.value} order has been placed.` +
+    `Your total is $${totalPrice.textContent}.`;
+
+    receiptContainer.innerHTML = "";
+    receiptContainer.appendChild(receiptCopy);
+
+    messageDisplay.textContent = "Thank You! Your order was submitted succesfully.";
+
+    messageDisplay.classList.add("success-message");
+    messageDisplay.setAttribute("role", "status");
+
+    orderHeading.classList.add("completed-order");
+
+    window.alert("Your Fratushka Cafe order was placed!");
+});

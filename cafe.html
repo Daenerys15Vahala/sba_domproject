@@ -91,7 +91,8 @@
           <input type="checkbox" name="extras" value="Extra Espresso" data-price="1.50">Extra Espresso (+$1.50)</label>
       </div>
 
-
+<section id="order">
+<form id="orderForm">
     <section id="orderSummary" class="order-summary">
       <h3>Order Summary</h3>
 
@@ -107,10 +108,17 @@
 
     <div class="form-buttons">
       <button type="submit">Place Order</button>
-      <button type="reset" id="clearOrderBtn">Clear Order</button>
+      <button type="button" id="clearOrderBtn">Clear Order</button>
     </div>
-      </form>
-    </div>
+
+  <template id ="receiptTemplate">
+    <article class="receipt">
+      <h3>Order Confirmed!</h3>
+      <p class="receiptText"></p>
+    </article>
+  </template>
+  <div id="receiptContainer"></div>
+  </form>
   </section>
 
   <hr>
