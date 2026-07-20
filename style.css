@@ -77,6 +77,67 @@ header {
 }
 
 
+#order {
+  max-width: 700px;
+  margin: 50px auto;
+  padding: 40px;
+  background: #F8F2FC;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+#orderForm {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-group{
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  margin-bottom: 8px;
+  font-weight: bold;
+}
+
+#orderForm input[type="text"],
+#orderForm input[type="email"],
+#orderForm select {
+  width: 100%;
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+}
+
+.drink-options {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 10px;
+}
+
+.drink-options label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: white;
+  padding: 12px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: .3s;
+}
+
+.drink-option label:hover{
+  background: #EAD7F5;
+}
+
+.drink-options input {
+  transform: scale(1.2);
+}
+
 /* about */
 .section-title {
   text-align: center;
