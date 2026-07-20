@@ -164,3 +164,32 @@ orderForm.addEventListener("submit", function (event) {
 
     window.alert("Your Fratushka Cafe order was placed!");
 });
+
+
+clearOrderBtn.addEventListener("click", function (event) {
+    event.preventDefault();
+
+    const clearConfirmed = window.confirm(
+        "Are you sure you want to clear your order?"
+    );
+
+    if (clearConfirmed === false) {
+        return;
+    }
+
+    orderForm.reset ();
+
+    summaryName.textContent =  "Not entered";
+    summaryDrink.textContent = "Not selected";
+    summarySize.textContent = "Not selected";
+    summaryExtras.textContent = "None";
+    totalPrice.textContent = "0.00";
+
+    messageDisplay.textContent = "";
+    messageDisplay.classList.remove(
+        "error-message", "success-message"
+    )
+
+    receiptContainer.innerHTML = "";
+    orderHeading.classList.remove("completed-order");
+});
