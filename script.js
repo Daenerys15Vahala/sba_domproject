@@ -55,3 +55,48 @@ drinkSize.addEventListener("change", function() {
     }
     updateTotal();
 });
+
+
+extras.forEach(function (extra) {
+    extra.addEventListener("change", function() {
+        const selectedExtras = [];
+
+        extras.forEach(function (item) {
+            if(item.checked) {
+                selectedExtras.push(item.value);
+            }
+        });
+
+        if(selectedExtras.length === 0){
+            summaryExtras.textContent = "None";
+        } else {
+            summaryExtras.textContent = selectedExtras.join(", ");
+        }
+        updateTotal();
+    });
+});
+
+function updateTotal(){
+    let total = 0;
+
+    const selectedDrink = document.querySelector(
+        'input[name="drink"]:checked'
+    );
+
+    if (selectedDrink) {
+        total = total + Number(selectedDrink.dataset.price);
+    }
+
+    if (drinkSize.value !== "") {
+        const selectedSize = drinkSize.options[drinkSize.selectedIndex];
+        total = total + Number(selectedSize.dataset.price);
+    }
+
+    extras.forEach(function (extra) {
+        if (extra.checked === true){
+            total = total + Number(extra.dataset.price);
+        }
+    });
+
+    totalPrice.textContent = total.toFixed(2);
+};
