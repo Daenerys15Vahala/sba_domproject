@@ -45,13 +45,20 @@
     <div class="container">
       <h3 class="section-title">Build Your Coffee Order</h3>
       <p>Choose your drink size and customize your coffee</p>
-      <div class="about-content">
-        <div class="about-text">
-          <p>Small</p>
-          <p>Medium</p>
-          <p>Large</p>
+      <form id="orderForm">
+        <div class="from-group">
+          <label for="customerName">Name</label>
+          <input
+          type="text", id="customerName", name="customerName", placeholder="Enter your name", minlength="2", maxlength="30", required>
         </div>
-      </div>
+
+        <div class="form-group">
+          <label for="customerEmail">Email</label>
+          <input type="email", id="customerEmail", name="customerEmail", placeholder="Enter your email", required>
+        </div>
+
+        
+      </form>
     </div>
   </section>
 
