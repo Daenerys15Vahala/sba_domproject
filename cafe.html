@@ -50,24 +50,24 @@
         <div class="from-group">
           <label for="customerName">Name</label>
           <input
-          type="text", id="customerName", name="customerName", placeholder="Enter your name", minlength="2", maxlength="30", required>
+          type="text" id="customerName" name="customerName" placeholder="Enter your name" minlength="2" maxlength="30" required>
         </div>
 
         <div class="form-group">
           <label for="customerEmail">Email</label>
-          <input type="email", id="customerEmail", name="customerEmail", placeholder="Enter your email", required>
+          <input type="email" id="customerEmail" name="customerEmail" placeholder="Enter your email" required>
         </div>
-      <!-- drink -->
+      <!-- drinks -->
         <h3>Choose your drink</h3>
         <div class="drink-options">
           <label>
-            <input type="radio", name="drink", value="Latte", data-price="5" required>Latter ($5.00)</label>
+            <input type="radio" name="drink" value="Latte" data-price="5" required>Latter ($5.00)</label>
           <label>
-            <input type="radio", name="drink", value="Cappuccino", data-price="5.50" required>Cappuccino ($5.50)</label>
+            <input type="radio" name="drink" value="Cappuccino" data-price="5.50" required>Cappuccino ($5.50)</label>
           <label>
-            <input type="radio", name="drink", value="Mocha", data-price="6" required>Mocha ($6.00)</label>
+            <input type="radio" name="drink" value="Mocha" data-price="6" required>Mocha ($6.00)</label>
           <label>
-            <input type="radio", name="drink", value="Americano", data-price="4" required>Americano ($4.00)</label>
+            <input type="radio" name="drink" value="Americano" data-price="4" required>Americano ($4.00)</label>
           </label>
         </div>
 
@@ -80,6 +80,35 @@
         <option value="Large" data-price="2">Large (+2.00)</option>
        </select>
 
+      <!-- extras -->
+      <h3>Add Extras</h3>
+      <div class="extras">
+        <label>
+          <input type="checkbox" name="extras" value="Caramel" data-price="0.75">Caramel (+$0.75)</label>
+        <label>
+          <input type="checkbox" name="extras" value="Whipped Cream" data-price="0.50">Whipped Cream (+$0.50)</label>
+        <label>
+          <input type="checkbox" name="extras" value="Extra Espresso" data-price="1.50">Extra Espresso (+$1.50)</label>
+      </div>
+
+
+    <section id="orderSummary" class="order-summary">
+      <h3>Order Summary</h3>
+
+      <p>Name <span id="summaryName">Not entered</span></p>
+      <p>Name <span id="summaryDrink">Not selected</span></p>
+      <p>Name <span id="summarySize">Not selected</span></p>
+      <p>Name <span id="summaryExtras">None</span></p>
+
+      <h3>Total: $<span id="totalPrice">0.00</span></h3>
+    </section>
+
+    <div id="messageDisplay"></div>
+
+    <div class="form-buttons">
+      <button type="submit">Place Order</button>
+      <button type="reset" id="clearOrderBtn">Clear Order</button>
+    </div>
       </form>
     </div>
   </section>
